@@ -1,4 +1,5 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
@@ -22,7 +23,7 @@ earlier adventurers. The only exit is to the south."""),
 }
 
 
-# Link rooms together
+# Link rooms together using dot notation
 
 room['outside'].n_to = room['foyer']
 room['foyer'].s_to = room['outside']
@@ -37,7 +38,27 @@ room['treasure'].s_to = room['narrow']
 # Main
 #
 
+### Notes - to make the game run ###
+# My game starts with a welcome message, and explanation of the scenario, and asks what their player name is. 
+# Then, It will run the functions I've written. 
+# After the game, it will ask if you want to play again. If yes, run the functions again. If no, it will exit the game.
+
+### Defining my functions ###
+
 # Make a new player object that is currently in the 'outside' room.
+# def start_game():
+#     player_name = input("Choose your username: \n")
+#     greet_user(player_name)
+#     player = Player(player_name, room["outside"])
+
+def greet_user(name):
+    while True:
+        if len(name) >0:
+            greeting = f"\n Hello {name}! Let's begin the adventure. Navigate to different rooms to find the hidden treasure. Good luck!\n"
+            print(greeting)
+        else:
+            print("Please provide a username.")
+            name = input("Type your name: \n")
 
 # Write a loop that:
 #
